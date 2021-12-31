@@ -1,12 +1,8 @@
 import com.GameInterface.DistributedValue;
-import com.GameInterface.Game.BuffData;
 import com.GameInterface.Game.Character;
 import com.GameInterface.Game.CharacterBase;
-import com.GameInterface.DialogIF;
 import com.GameInterface.Inventory;
-import com.GameInterface.InventoryItem;
 import com.Utils.Archive;
-import com.Utils.LDBFormat;
 import mx.utils.Delegate;
 import com.Utils.ID32;
 
@@ -16,7 +12,6 @@ class com.theck.LayOffTheSauce.LayOffTheSauce{
 	static var version:String = "1.0";
 	
 	private var m_Character:Character;
-	private var m_CharacterBase:CharacterBase;
 	private var m_Inventory:Inventory;
 	private var AutoSauce:DistributedValue;
 	private var BuffPollingInterval:Number;
@@ -43,7 +38,6 @@ class com.theck.LayOffTheSauce.LayOffTheSauce{
 	
 	public function Load(){
 		m_Character = Character.GetClientCharacter();
-		m_CharacterBase = CharacterBase( m_Character.GetID );
 		m_Inventory = new Inventory(new ID32(_global.Enums.InvType.e_Type_GC_BackpackContainer, m_Character.GetID().GetInstance()));
 		com.GameInterface.UtilsBase.PrintChatText("LayOffTheSauce v" + version + " Loaded! Use '/setoption AutoSauce <true/false>' to toggle");
 	}
