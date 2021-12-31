@@ -13,7 +13,7 @@ import com.Utils.ID32;
 class com.theck.LayOffTheSauce.LayOffTheSauce{
 	
 	// Version
-	static var version:String = "0.1.0";
+	static var version:String = "1.0";
 	
 	private var m_Character:Character;
 	private var m_CharacterBase:CharacterBase;
@@ -45,7 +45,7 @@ class com.theck.LayOffTheSauce.LayOffTheSauce{
 		m_Character = Character.GetClientCharacter();
 		m_CharacterBase = CharacterBase( m_Character.GetID );
 		m_Inventory = new Inventory(new ID32(_global.Enums.InvType.e_Type_GC_BackpackContainer, m_Character.GetID().GetInstance()));
-		com.GameInterface.UtilsBase.PrintChatText("LayOffTheSauce Loaded: /setoption AutoSauce <true/false> to toggle");
+		com.GameInterface.UtilsBase.PrintChatText("LayOffTheSauce v" + version + " Loaded! Use '/setoption AutoSauce <true/false>' to toggle");
 	}
 	
 	public function Unload(){
@@ -80,7 +80,7 @@ class com.theck.LayOffTheSauce.LayOffTheSauce{
 			var slotNo:Number = FindSauceInInventory();
 			if ( slotNo > 0 ) {
 				Inventory(m_Inventory).UseItem(slotNo);
-				com.GameInterface.UtilsBase.PrintChatText("LayOffTheSauce: DRINK DRINK DRINK");
+				//com.GameInterface.UtilsBase.PrintChatText("LayOffTheSauce: DRINK DRINK DRINK");
 			}
 		
 			// if we were successful, no need to check for the next 30 seconds. Clear the polling interval and reschedule for ~30s later
