@@ -72,7 +72,7 @@ class com.theck.LayOffTheSauce.LayOffTheSauce{
 	private function UseSauce() {
 		if ( AutoSauce.GetValue() ) {
 			var slotNo:Number = FindSauceInInventory();
-			if ( slotNo > 0 ) {
+			if ( slotNo >= 0 ) {
 				Inventory(m_Inventory).UseItem(slotNo);
 				//com.GameInterface.UtilsBase.PrintChatText("LayOffTheSauce: DRINK DRINK DRINK");
 			}
